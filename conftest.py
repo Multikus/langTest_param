@@ -10,12 +10,6 @@ def pytest_addoption(parser):
     parser.addoption('--language', action='store', default="ru",
                      help="Choose language: ru/en/ua etc...")
 
-# def pytest_addoption(parser):
-#     parser.addoption('--browser_name', action='store', default=st.user_browser,
-#                      help="Choose browser: chrome or firefox")
-#     parser.addoption('--language', action='store', default=st.lang,
-#                      help="Choose language: ru/en/ua etc...")
-
 
 @pytest.fixture
 def lang(request):
@@ -43,13 +37,3 @@ def browser(request, lang):
     yield browser
     print("\nquit browser..")
     browser.quit()
-
-# Для одного браузера
-# @pytest.fixture(scope="function")
-# def browser():
-#     print("\nstart browser for test..")
-#     browser = webdriver.Chrome()
-#     browser.implicitly_wait(8)
-#     yield browser
-#     print("\nquit browser..")
-#     browser.quit()
